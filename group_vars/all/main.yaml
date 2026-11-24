@@ -9,21 +9,21 @@
 #mysql_root_password: "{{ vault_mysql_root_password }}"
 
 #Using AWS Secrets Manager
-ansible_user: "{{ lookup('amazon.aws.aws_secret', 'roboshop/dev/ansible', region='us-east-1') | from_json | json_query('ansible_user') }}"
-ansible_password: "{{ lookup('amazon.aws.aws_secret', 'roboshop/dev/ansible', region='us-east-1') | from_json | json_query('ansible_password') }}"
-mysql_root_password: "{{ lookup('amazon.aws.aws_secret', 'roboshop/dev/ansible', region='us-east-1') | from_json | json_query('mysql_root_password') }}"
+# ansible_user: "{{ lookup('amazon.aws.aws_secret', 'roboshop/dev/ansible', region='us-east-1') | from_json | json_query('ansible_user') }}"
+# ansible_password: "{{ lookup('amazon.aws.aws_secret', 'roboshop/dev/ansible', region='us-east-1') | from_json | json_query('ansible_password') }}"
+# mysql_root_password: "{{ lookup('amazon.aws.aws_secret', 'roboshop/dev/ansible', region='us-east-1') | from_json | json_query('mysql_root_password') }}"
 
-rabbitmq_user: "{{ vault_rabbitmq_user }}"
-rabbitmq_password: "{{ vault_rabbitmq_password }}"
-shipping_db_user: "{{ vault_shipping_db_user }}"
-shipping_db_password: "{{ vault_shipping_db_password }}"
+# rabbitmq_user: "{{ vault_rabbitmq_user }}"
+# rabbitmq_password: "{{ vault_rabbitmq_password }}"
+# shipping_db_user: "{{ vault_shipping_db_user }}"
+# shipping_db_password: "{{ vault_shipping_db_password }}"
 
-mongodb_host: mongodb.mithul.space
-redis_host: redis.mithul.space
-mysql_host: mysql.mithul.space
-rabbitmq_host: rabbitmq.mithul.space
-catalogue_host: catalogue.mithul.space
-user_host: user.mithul.space
-cart_host: cart.mithul.space
-shipping_host: shipping.mithul.space
-payment_host: payment.mithul.space
+mongodb_host: mongodb-{{ env }}-{{ env }}.mithul.space
+redis_host: redis-{{ env }}.mithul.space
+mysql_host: mysql-{{ env }}.mithul.space
+rabbitmq_host: rabbitmq-{{ env }}.mithul.space
+catalogue_host: catalogue-{{ env }}.mithul.space
+user_host: user-{{ env }}.mithul.space
+cart_host: cart-{{ env }}.mithul.space
+shipping_host: shipping-{{ env }}.mithul.space
+payment_host: payment-{{ env }}.mithul.space
