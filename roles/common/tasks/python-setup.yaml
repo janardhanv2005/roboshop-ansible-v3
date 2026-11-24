@@ -1,0 +1,16 @@
+- name: install Python and Pip
+  dnf:
+    name: 
+    - python3.14
+    - python3.14-pip
+    state: present
+    
+- name: Create Python virtual environment
+  command:
+    cmd: python3.14 -m venv /app/.venv
+    creates: /app/.venv/bin/python
+
+- name: Install Python dependencies
+  pip:
+    requirements: /app/requirements.txt
+    virtualenv: /app/.venv

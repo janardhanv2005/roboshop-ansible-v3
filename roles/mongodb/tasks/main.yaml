@@ -1,0 +1,26 @@
+- name: copy repo file
+  copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongo db
+  dnf:
+    name: mongodb-org
+    state: present
+
+- name: start and enable mongodb
+  service:
+    name: mongod
+    state: started
+    enabled: yes
+
+- name: edit configuration
+  replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+    
+- name: restart mongodb
+  service:
+    name: mongod
+    state: restarted
