@@ -18,7 +18,7 @@
 # shipping_db_user: "{{ vault_shipping_db_user }}"
 # shipping_db_password: "{{ vault_shipping_db_password }}"
 
-mongodb_host: mongodb-{{ env }}-{{ env }}.mithul.space
+mongodb_host: mongodb-{{ env }}.mithul.space
 redis_host: redis-{{ env }}.mithul.space
 mysql_host: mysql-{{ env }}.mithul.space
 rabbitmq_host: rabbitmq-{{ env }}.mithul.space
